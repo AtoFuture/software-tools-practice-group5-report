@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
-timezone: ''
+title: 软件开发工具实践成果展示网站
+subtitle: Windows + VirtualBox + Ubuntu Server + Nginx
+description: 本网站用于展示软件开发工具实践课程的实验过程、环境配置、远程管理和部署成果。
+keywords: 软件开发工具实践, Hexo, Ubuntu, Nginx, VirtualBox
+author: 第5组
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
