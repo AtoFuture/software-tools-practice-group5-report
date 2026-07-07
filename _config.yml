@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 软件开发工具实践成果展示网站
+title: 软件开发工具实践实验报告
 subtitle: Windows + VirtualBox + Ubuntu Server + Nginx
 description: 本网站用于展示软件开发工具实践课程的实验过程、环境配置、远程管理和部署成果。
-keywords: 软件开发工具实践, Hexo, Ubuntu, Nginx, VirtualBox
-author: 第5组
+keywords: 鏉烆垯娆㈠鈧崣鎴濅紣閸忓嘲鐤勭捄? Hexo, Ubuntu, Nginx, VirtualBox
+author: 第五组
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -28,7 +28,6 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -102,3 +101,6 @@ theme: landscape
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+
+skip_render: report/**
