@@ -113,6 +113,31 @@
       text-align: center;
       font-size: 14px;
     }
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 20px;
+      margin: 16px 0 24px;
+    }
+    .screenshot-item {
+      margin: 0;
+      border: 1px solid #bbb;
+      background: #fff;
+      padding: 10px;
+    }
+    .screenshot-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+    }
+    .screenshot-item figcaption {
+      margin-top: 8px;
+      color: #444;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
     .problem-box {
       border: 1px solid #999;
       padding: 14px 16px;
@@ -153,6 +178,7 @@
       .info-table, .score-table { font-size: 13px; }
       .info-table th, .info-table td,
       .score-table th, .score-table td { padding: 8px; }
+      .screenshot-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -419,6 +445,34 @@ Sent = 4, Received = 4, Lost = 0</div>
         <tr><td>最终部署访问结果</td><td>证明浏览器能够访问部署后的静态实验报告页面。</td></tr>
       </tbody>
     </table>
+
+    <h2>十一、关键运行截图</h2>
+    <div class="screenshot-grid">
+      <figure class="screenshot-item">
+        <img src="./images/06-hexo-generate-report.png" alt="Hexo 静态文件生成截图" />
+        <figcaption>Hexo 执行静态文件生成，确认报告页面可输出到 public 目录。</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="./images/07-vscode-project-report-page.png" alt="VS Code 项目结构截图" />
+        <figcaption>VS Code 中查看项目结构和报告页面文件，确认源码编辑环境可用。</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="./images/14-virtualbox-port-forwarding.png" alt="VirtualBox 端口转发截图" />
+        <figcaption>VirtualBox 配置 NAT 端口转发，为 Windows 访问 Ubuntu 服务提供通道。</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="./images/18-scp-upload-public.png" alt="SCP 上传静态文件截图" />
+        <figcaption>通过 SCP 上传 Hexo 生成文件，完成本地到 Linux 环境的文件传输。</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="./images/30-packettracer-simulation-pdu.png" alt="Packet Tracer Simulation 截图" />
+        <figcaption>Packet Tracer Simulation 模式中观察 ICMP 数据包在 PC 与交换机之间传递。</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="./images/23-final-report-page-8080.png" alt="最终部署页面截图" />
+        <figcaption>浏览器访问部署后的报告页面，验证 Nginx 静态站点发布结果。</figcaption>
+      </figure>
+    </div>
 
     <div class="summary">
       <p class="no-indent"><strong>最终访问地址：</strong><code>http://127.0.0.1:8080/report/</code></p>
