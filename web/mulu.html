@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  /* 1. 全局平滑滚动（让跳转有滑动动画） */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 2. 防止被固定顶部栏遮住（比如顶部有个 60px 的导航） */
+  h2, h3 {
+    scroll-margin-top: 80px; /* 数值比你顶部导航栏的高度大一点即可 */
+  }
+
+  /* 模拟顶部固定导航 */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #333;
+    color: rgb(225, 209, 209);
+    line-height: 60px;
+    text-align: center;
+    z-index: 999;
+  }
+  body { padding-top: 80px; } /* 避免内容被导航遮住 */
+</style>
+</head>
+<body>
+<div class="navbar">🔝 我是固定导航栏</div>
+
+<ul>
+  <li><a href="#sec1">跳转第一章</a></li>
+  <li><a href="#sec2">跳转第二章</a></li>
+</ul>
+
+<h2 id="sec1">第一章</h2>
+<p>内容...</p>
+<div style="height:800px; background:#f0f0f0;"></div>
+
+<h2 id="sec2">第二章</h2>
+<p>内容...</p>
+</body>
+</html>
