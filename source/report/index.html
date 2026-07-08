@@ -161,7 +161,7 @@
   <main class="page">
     <header class="report-title">
       <h1>软件开发工具实践实验报告</h1>
-      <p>Windows 本地开发环境、Ubuntu Server、SSH 远程管理与 Nginx 静态站点部署</p>
+      <p>Windows 本地开发环境、Ubuntu Server、SSH 远程管理、Nginx 静态站点部署与 Packet Tracer 局域网通信</p>
     </header>
 
     <table class="info-table">
@@ -179,7 +179,7 @@
       </tr>
       <tr>
         <th>主要工具</th>
-        <td colspan="3">VS Code、Git、Node.js、npm、Hexo、OpenSSH Server、Nginx</td>
+        <td colspan="3">VS Code、Git、Node.js、npm、Hexo、OpenSSH Server、Nginx、Cisco Packet Tracer</td>
       </tr>
     </table>
 
@@ -190,6 +190,7 @@
       使用 Hexo 生成静态实验报告网站；随后通过 VirtualBox 创建 Ubuntu Server 虚拟机，
       在虚拟机中配置 OpenSSH Server 和 Nginx，最终将生成的静态网页部署到 Linux Web 服务目录中，
       并通过浏览器进行访问验证。
+      同时，本报告补充 Packet Tracer 局域网通信实验，用于验证基础网络拓扑、IP 地址配置和 ICMP 数据包传输过程。
     </p>
 
     <h2>二、技术栈说明</h2>
@@ -210,6 +211,7 @@
         <tr><td>Linux 系统</td><td>Ubuntu Server 22.04 LTS</td><td>作为 Web 服务部署环境。</td></tr>
         <tr><td>远程管理</td><td>OpenSSH Server、SSH、SCP</td><td>用于远程登录虚拟机和上传静态网页文件。</td></tr>
         <tr><td>Web 服务</td><td>Nginx</td><td>用于部署和访问静态实验报告网站。</td></tr>
+        <tr><td>网络仿真</td><td>Cisco Packet Tracer</td><td>用于搭建简单局域网拓扑并观察 ICMP 通信过程。</td></tr>
       </tbody>
     </table>
 
@@ -299,7 +301,40 @@ sudo cp -r ~/web-report-public/* /var/www/html/
 sudo chmod -R 755 /var/www/html
 sudo systemctl restart nginx</div>
 
-    <h2>五、结果验证</h2>
+    <h2>五、网络软件基础实验：Packet Tracer 局域网通信</h2>
+    <p>
+      为补充网络软件基础实验内容，在 Windows 主机中安装并运行 Cisco Packet Tracer，
+      使用该工具完成简单局域网通信仿真。Packet Tracer 能够直观展示终端、交换机和数据包在网络中的运行过程，
+      适合用于验证基础网络配置是否正确。
+    </p>
+    <p>
+      本次实验搭建的拓扑结构为 <code>PC0 — Switch — PC1</code>。
+      其中 PC0 的 IPv4 地址配置为 <code>192.168.1.1</code>，子网掩码为 <code>255.255.255.0</code>；
+      PC1 的 IPv4 地址配置为 <code>192.168.1.2</code>，子网掩码同样为 <code>255.255.255.0</code>。
+      两台主机处于同一网段，能够通过交换机完成二层转发和三层通信验证。
+    </p>
+    <div class="cmd">PC0:
+IP Address: 192.168.1.1
+Subnet Mask: 255.255.255.0
+
+PC1:
+IP Address: 192.168.1.2
+Subnet Mask: 255.255.255.0
+
+PC0&gt; ping 192.168.1.2
+Sent = 4, Received = 4, Lost = 0</div>
+    <p>
+      在 PC0 中执行 <code>ping 192.168.1.2</code> 后，命令结果显示
+      <code>Sent=4</code>、<code>Received=4</code>、<code>Lost=0</code>，
+      表明 PC0 与 PC1 之间通信成功，局域网 IP 地址和交换机连接配置正确。
+    </p>
+    <p>
+      切换到 Packet Tracer 的 Simulation 模式后，可以观察 ICMP 数据包从 PC0 发出，
+      经过 Switch 转发到 PC1，随后响应数据包再经由 Switch 返回 PC0。
+      该过程帮助理解局域网内主机通信、交换机转发以及 ICMP 请求与响应的基本流程。
+    </p>
+
+    <h2>六、结果验证</h2>
     <p>
       最终在 Windows 浏览器中访问 <code>http://127.0.0.1:8080</code>，
       能够看到部署在 Ubuntu Server + Nginx 环境中的静态实验报告网站。
@@ -308,7 +343,7 @@ sudo systemctl restart nginx</div>
 
     <div class="figure">此处可放置结果截图：浏览器访问 127.0.0.1:8080/report/ 的最终页面</div>
 
-    <h2>六、问题记录与解决方法</h2>
+    <h2>七、问题记录与解决方法</h2>
     <div class="problem-box">
       <p><strong>问题一：</strong> 使用 winget 下载 Node.js 时出现网络连接失败。</p>
       <p><strong>解决方法：</strong> 改用国内镜像下载 Node.js 安装包，完成 Node.js 和 npm 的安装。</p>
@@ -322,7 +357,7 @@ sudo systemctl restart nginx</div>
       <p><strong>解决方法：</strong> 重新执行 <code>hexo clean</code> 和 <code>hexo generate</code>，完整上传 public 目录中的 HTML、CSS、JS 和图片资源。</p>
     </div>
 
-    <h2>七、总结</h2>
+    <h2>八、总结</h2>
     <p>
       通过本次实践，我对软件开发工具之间的协作关系有了更加直观的理解。
       VS Code 用于编辑项目文件，Git 用于记录项目修改，Node.js 和 Hexo 用于生成静态网页，
@@ -333,6 +368,57 @@ sudo systemctl restart nginx</div>
       本次实验不仅完成了静态实验报告网页的开发，也完成了从 Windows 本地环境到 Linux Web 服务环境的部署闭环。
       在后续小组展示中，可以基于该流程继续补充截图、成员报告和答辩说明。
     </p>
+
+    <h2>九、技术展望与升级方案</h2>
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th>方向</th>
+          <th>当前方案</th>
+          <th>升级思路</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>静态站点生成</td>
+          <td>Hexo</td>
+          <td>后续可根据文档站点、实验报告或课程网站的维护需求，调研并替换为 Hugo、VitePress 或 VuePress。</td>
+        </tr>
+        <tr>
+          <td>部署流程</td>
+          <td>手动执行 <code>scp</code> 上传文件</td>
+          <td>可升级为 shell 脚本、Git hooks 或 GitHub Actions，减少重复操作并提升部署一致性。</td>
+        </tr>
+        <tr>
+          <td>Web 服务</td>
+          <td>Nginx</td>
+          <td>Nginx 可继续作为稳定的静态站点服务，也可以进一步调研 Caddy，比较 HTTPS 自动配置和部署体验。</td>
+        </tr>
+        <tr>
+          <td>运行环境</td>
+          <td>VirtualBox NAT + 端口转发</td>
+          <td>后续可升级为桥接网络，或直接部署到云服务器，以便获得更接近真实生产环境的访问方式。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>十、证据材料清单</h2>
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th>截图类别</th>
+          <th>主要证明内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Git / Node.js / npm / Hexo</td><td>证明本地开发工具、版本管理和静态站点生成环境已安装并可用。</td></tr>
+        <tr><td>VS Code / Markdown 预览</td><td>证明实验报告源文件能够在编辑器中编写和预览。</td></tr>
+        <tr><td>VirtualBox / Ubuntu Server</td><td>证明 Linux 虚拟机创建、安装和运行过程完成。</td></tr>
+        <tr><td>SSH / SCP / Nginx</td><td>证明远程登录、文件上传和 Web 服务部署流程可执行。</td></tr>
+        <tr><td>Packet Tracer</td><td>证明局域网拓扑搭建、IP 配置、ping 通信和 Simulation 模式观察已完成。</td></tr>
+        <tr><td>最终部署访问结果</td><td>证明浏览器能够访问部署后的静态实验报告页面。</td></tr>
+      </tbody>
+    </table>
 
     <div class="summary">
       <p class="no-indent"><strong>最终访问地址：</strong><code>http://127.0.0.1:8080/report/</code></p>
