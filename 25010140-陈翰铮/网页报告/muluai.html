@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网页开发实践报告</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f5f7fa;
+    padding: 40px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  /* ----- 全局平滑滚动 & 锚点偏移 ----- */
+  html { scroll-behavior: smooth; }
+  h2 { scroll-margin-top: 30px; }
+
+  /* ----- 目录样式 ----- */
+  .toc {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    background: white;
+    padding: 25px 35px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .toc ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  .toc a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ----- 图文卡片（左右并排） ----- */
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .card img {
+    width: 38%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+  .card .text { flex: 1; }
+  .card .text h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+  }
+  .card .text p {
+    line-height: 1.9;
+    font-size: 16px;
+    color: #3d3d3d;
+    text-align: justify;
+    text-indent: 2em;
+    margin-bottom: 0.8em;
+  }
+  .card .text p:last-child { margin-bottom: 0; }
+
+  /* 手机适配 */
+  @media (max-width: 700px) {
+    .card { flex-direction: column; padding: 20px; gap: 20px; }
+    .card img { width: 100%; height: 200px; }
+    .toc ul { flex-direction: column; gap: 5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 目录区 ===== -->
+<div class="toc">
+  <strong>📑 本文目录：</strong>
+  <ul>
+    <li><a href="#sec1">第一章：环境部署</a></li>
+    <li><a href="#sec2">第二章：图文进阶</a></li>
+  </ul>
+</div>
+
+<!-- ===== 卡片 1 ===== -->
+<div class="card" id="sec1">
+  <img src="image/2026-07-06 192811.png" alt="示例图1">
+  <div class="text">
+    <h2>第一章：环境部署</h2>
+    <p>在开始开发之前，我们需要先搭建好开发环境。这包括安装必要的软件和工具，配置开发环境变量，以及确保所有依赖项都已正确安装。本网站采用了VS CODE 进行网页源代码的编译，并配置了live server进行实时预览。确保能够根据网页的效果精确地调整网页源代码。</p>
+    <p>在实现代码迭代时，我们小组将使用git进行版本控制和团队协作，管理网页源代码的变更。</p>
+    <p>以下图片是我们小组的第一个网页截图。</p>
+    <img src="image/2026-07-06 192720.png " alt="示例图2" style="width:100%; margin-top:10px; border-radius:8px;">
+  </div>
+</div>
+
+<!-- ===== 卡片 2（图片在右，通过 flex-direction: row-reverse 实现） ===== -->
+<div class="card" id="sec2" style="flex-direction: row-reverse;">
+  <img src="image/3.png " alt="示例图2">
+  <div class="text">
+    <h2>第二章：图片右置与长文承载</h2>
+    <p>这张卡片的图片被放在了右侧，只需要给容器加一句 <code>flex-direction: row-reverse</code> 即可实现镜像布局。在手机端，所有卡片都会自动变成上图下文，保证在小屏幕上也清晰易读。</p>
+    <p>如果你有大量的文字内容（比如几千字的文章），直接在这个 <code>.text</code> 容器里继续堆叠 <code>&lt;p&gt;</code> 标签即可。配合顶部目录区的锚点链接（#sec1, #sec2），点击目录标题，页面会自动平滑滚动到这里，非常方便。</p>
+  </div>
+</div>
+
+</body>
+</html>
