@@ -68,7 +68,12 @@ Assert-NativeSuccess "Remote deployment"
 
 Write-Host "===== 6. Verify HTTP response ====="
 
-& curl.exe -I "http://127.0.0.1:8080/report/"
+& curl.exe `
+    --fail `
+    --silent `
+    --show-error `
+    --head `
+    "http://127.0.0.1:8080/report/"
 Assert-NativeSuccess "HTTP verification"
 
 Write-Host ""

@@ -6,14 +6,14 @@
 title: 软件开发工具实践实验报告
 subtitle: Windows + VirtualBox + Ubuntu Server + Nginx
 description: 本网站用于展示软件开发工具实践课程的实验过程、环境配置、远程管理和部署成果。
-keywords: 鏉烆垯娆㈠鈧崣鎴濅紣閸忓嘲鐤勭捄? Hexo, Ubuntu, Nginx, VirtualBox
+keywords: 软件开发工具实践, Hexo, Ubuntu, Nginx, VirtualBox, SSH, Git
 author: 第五组
 language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://127.0.0.1:8080
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
