@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>软件开发工具实践个人实验报告 - 王壹</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e9e9e9; color: #222; font-family: "Microsoft YaHei", "SimSun", Arial, sans-serif; line-height: 1.8; font-size: 15px; }
+    .page { width: min(920px, calc(100% - 32px)); margin: 32px auto; padding: 44px 54px 52px; background: #fff; border: 1px solid #dcdcdc; box-shadow: 0 0 12px rgba(0, 0, 0, 0.08); }
+    header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #222; }
+    h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }
+    h2 { margin: 30px 0 12px; padding-left: 12px; border-left: 5px solid #222; font-size: 20px; line-height: 1.4; }
+    p { margin: 8px 0 12px; text-indent: 2em; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
+    th, td { border: 1px solid #999; padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { width: 140px; text-align: center; background: #f5f5f5; }
+    ul { margin: 8px 0 14px 1.6em; padding: 0; }
+    a { color: #111; text-decoration: underline; }
+    .footer-link { margin-top: 28px; padding-top: 14px; border-top: 1px solid #bbb; text-indent: 0; }
+    @media (max-width: 720px) { .page { width: 100%; margin: 0; padding: 28px 20px 36px; border: none; } h1 { font-size: 24px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>软件开发工具实践个人实验报告</h1>
+    </header>
+
+    <h2>一、基本信息</h2>
+    <table>
+      <tr><th>小组</th><td>第五组</td></tr>
+      <tr><th>角色</th><td>组长</td></tr>
+      <tr><th>学号</th><td>25051224</td></tr>
+      <tr><th>姓名</th><td>王壹</td></tr>
+    </table>
+
+    <h2>二、本人负责内容</h2>
+    <ul>
+      <li>搭建 Git、Node.js、npm、Hexo Web 开发环境。</li>
+      <li>使用 VS Code 编写 Markdown 与 HTML 实验报告。</li>
+      <li>使用 Git 进行版本管理，并整理 GitHub 仓库结构。</li>
+      <li>使用 VirtualBox 安装 Ubuntu Server，配置 SSH、SCP 与 Nginx。</li>
+      <li>使用 Cisco Packet Tracer 搭建简单局域网并完成 ping 通信测试。</li>
+      <li>整理实验截图、Packet Tracer 文件、小组最终网页和成员个人材料目录。</li>
+    </ul>
+
+    <h2>三、实验过程记录</h2>
+    <p>本次实验从 Windows 本地开发环境搭建开始，依次完成 Git、Node.js、npm、Hexo 与 VS Code 的安装和验证，随后使用 Hexo 生成静态报告网页。</p>
+    <p>在部署阶段，使用 VirtualBox 创建 Ubuntu Server 虚拟机，配置 SSH 远程登录和 NAT 端口转发，通过 SCP 上传 public 静态文件，并使用 Nginx 将网页部署到 /var/www/html/。</p>
+    <p>在网络软件基础实验中，使用 Cisco Packet Tracer 搭建 PC0 — Switch — PC1 拓扑，配置同网段 IP 地址，并通过 ping 与 Simulation 模式验证 ICMP 数据包通信过程。</p>
+
+    <h2>四、操作截图说明</h2>
+    <p>个人截图材料已整理在 members/25051224-王壹/截图/ 目录中，包含开发环境验证、Hexo 生成、VS Code 编辑、Ubuntu 安装、SSH/SCP、Nginx 部署、Packet Tracer 通信和最终访问结果等截图。</p>
+
+    <h2>五、问题与总结</h2>
+    <p>实验过程中主要遇到环境安装、虚拟机启动、端口转发和部署路径验证等问题。通过逐步检查命令输出、服务状态和浏览器访问结果，最终完成了从本地开发到 Linux Web 服务部署的完整闭环。</p>
+
+    <p class="footer-link"><a href="../../">返回小组总报告</a></p>
+  </main>
+</body>
+</html>
+
