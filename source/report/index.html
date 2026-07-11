@@ -314,7 +314,13 @@ scp -P 2222 ssh-transfer-test.txt hdu@127.0.0.1:~/software-tools-practice/</pre>
 if (-not (Test-Path $ReportIndex)) { throw "Generated report was not found" }
 &amp; scp -P $SshPort -r $PublicDirectory $RemoteTarget
 &amp; ssh -tt -p $SshPort "${RemoteUser}@${ServerHost}" $RemoteCommand
-&amp; curl.exe -I "http://127.0.0.1:8080/report/"</pre>
+&amp; curl.exe `
+    --fail `
+    --silent `
+    --show-error `
+    --head `
+    "http://127.0.0.1:8080/report/"
+Assert-NativeSuccess "HTTP verification"</pre>
       <figure><img src="./images/39-deploy-script-source.png" alt="自动部署脚本源码" /><figcaption>图 39 自动部署脚本源码。截图展示 deploy.ps1 的实际关键代码，证明构建、上传、部署和检查已脚本化。</figcaption></figure>
       <h3>HTTP 访问验证</h3>
       <pre>Nginx deployment completed.
